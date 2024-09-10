@@ -1,0 +1,21 @@
+name: Netlify Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: deploy to netlify
+        id: deploy
+        uses: nahianku1/netlify-deploy@v1
+        with:
+          auth_token: ${{secrets.NETLIFY_TOKEN}}
+          site_name: dancing-pastelito-9838b7
+      - name: Output URL
+        run: echo "${{steps.deploy.outputs.live-url}}"
