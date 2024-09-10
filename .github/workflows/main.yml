@@ -16,6 +16,7 @@ jobs:
         uses: nahianku1/netlify-deploy@v1
         with:
           auth_token: ${{secrets.NETLIFY_TOKEN}}
-          site_name: dancing-pastelito-9838b7
+          site_name: custom-react-app
+          build_directory: build
       - name: Output URL
         run: echo "${{steps.deploy.outputs.live-url}}"
